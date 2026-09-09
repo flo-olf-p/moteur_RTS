@@ -1,9 +1,7 @@
 # ninja log v6
 14	714	8106673536210233	RTS_Engine/RTS_Engine_autogen/timestamp	5ba16e6778eb314f
+718	3688	8106673537062081	RTS_Engine/CMakeFiles/RTS_Engine.dir/RTS_Engine_autogen/mocs_compilation.cpp.obj	b5ff0553ff728673
 14	714	8106673536210233	RTS_Engine/RTS_Engine_autogen/mocs_compilation.cpp	5ba16e6778eb314f
-14	714	8106673536210233	C:/Users/trist/source/repos/RTS_Engine/out/build/debug/RTS_Engine/RTS_Engine_autogen/timestamp	5ba16e6778eb314f
-14	714	8106673536210233	C:/Users/trist/source/repos/RTS_Engine/out/build/debug/RTS_Engine/RTS_Engine_autogen/mocs_compilation.cpp	5ba16e6778eb314f
+3688	4414	8106673566767130	RTS_Engine/RTS_Engine.exe	ecf7ad766ed2640e
 735	3606	8106673537228644	RTS_Engine/CMakeFiles/RTS_Engine.dir/main.cpp.obj	4c5a818dc06bc7b0
 750	3613	8106673537379787	RTS_Engine/CMakeFiles/RTS_Engine.dir/RTS_Engine.cpp.obj	6edf81b69e4c500a
-718	3688	8106673537062081	RTS_Engine/CMakeFiles/RTS_Engine.dir/RTS_Engine_autogen/mocs_compilation.cpp.obj	b5ff0553ff728673
-3688	4414	8106673566767130	RTS_Engine/RTS_Engine.exe	ecf7ad766ed2640e
