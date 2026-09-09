@@ -1,0 +1,27 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"RTS_Engine/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"id" : "RTS_Engine_autogen_timestamp_deps::@42c1ba06830a4794ec18",
+	"isGeneratorProvided" : true,
+	"name" : "RTS_Engine_autogen_timestamp_deps",
+	"paths" : 
+	{
+		"build" : "RTS_Engine",
+		"source" : "RTS_Engine"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}
