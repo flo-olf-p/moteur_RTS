@@ -3,6 +3,8 @@
 #include <QWidget>
 #include "ui_QtWidgetsSimulation.h"
 
+
+
 class QtWidgetsSimulation : public QWidget
 {
 	Q_OBJECT
@@ -13,6 +15,8 @@ public:
 
 private:
 	Ui::QtWidgetsSimulationClass ui;
-	void QtPaintEventGrid(QPaintEvent* event);
+protected:
+	void paintEvent(QPaintEvent* event) override;
+	void paintAnimals(QPainter& painter, int x, int y, int size);
 };
 

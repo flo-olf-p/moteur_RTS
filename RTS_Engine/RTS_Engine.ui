@@ -14,7 +14,7 @@
    <string>RTS_Engine</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="widget" native="true">
+   <widget class="QtWidgetsSimulation" name="widget" native="true">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -24,7 +24,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="widget_2" native="true">
+   <widget class="QtWidgetsDebugMenu" name="widget_2" native="true">
     <property name="geometry">
      <rect>
       <x>1000</x>
@@ -56,6 +56,20 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QtWidgetsSimulation</class>
+   <extends>QWidget</extends>
+   <header>QtWidgetsSimulation.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QtWidgetsDebugMenu</class>
+   <extends>QWidget</extends>
+   <header>QtWidgetsDebugMenu.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
