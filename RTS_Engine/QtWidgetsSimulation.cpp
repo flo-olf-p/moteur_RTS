@@ -35,6 +35,11 @@ void QtWidgetsSimulation::paintEvent(QPaintEvent * event)
 	for (int i = 0; i < width() / m_SizeCase; i++)
 	{
 		for (int j = 0; j < height() / m_SizeCase; j++) {
+			/*paintAnimals(painter, (i * m_SizeCase + m_SizeCase / 2), (j * m_SizeCase + m_SizeCase / 2), SizeAnimal, true);*/
+
+			/*paintAnimals(painter, (i * m_SizeCase + m_SizeCase / 2) - SizeAnimal, (j * m_SizeCase + m_SizeCase / 2), SizeAnimal, true);
+			paintAnimals(painter, (i * m_SizeCase + m_SizeCase / 2) +SizeAnimal, (j * m_SizeCase + m_SizeCase / 2), SizeAnimal, false);*/
+
 			paintAnimals(painter, (i * m_SizeCase + m_SizeCase / 2) - SizeAnimal, (j * m_SizeCase + m_SizeCase / 2) - SizeAnimal, SizeAnimal, true);
 			paintAnimals(painter, (i * m_SizeCase + m_SizeCase / 2) - SizeAnimal, (j * m_SizeCase + m_SizeCase / 2) + SizeAnimal, SizeAnimal, true);
 			paintAnimals(painter, (i * m_SizeCase + m_SizeCase / 2) + SizeAnimal, (j * m_SizeCase + m_SizeCase / 2) - SizeAnimal, SizeAnimal, false);
@@ -47,11 +52,11 @@ void QtWidgetsSimulation::paintAnimals(QPainter& painter, int x, int y, int size
 {
 	if (pred)
 	{
-		painter.setPen(QPen(Qt::red, 10, Qt::SolidLine));
+		painter.setPen(QPen(Qt::red, size, Qt::SolidLine));
 	}
 	else
 	{
-	painter.setPen(QPen(Qt::blue, 10, Qt::SolidLine));
+	painter.setPen(QPen(Qt::blue, size, Qt::SolidLine));
 	}
 	painter.drawPoint(x, y);
 }
