@@ -11,6 +11,7 @@ RTS_Engine::RTS_Engine(QWidget *parent)
 {
     ui.setupUi(this);
 
+	connect(ui.widget_2, &QtWidgetsDebugMenu::gridSizeChanged, ui.widget, &QtWidgetsSimulation::setGridSize);
 }
 
 RTS_Engine::~RTS_Engine()

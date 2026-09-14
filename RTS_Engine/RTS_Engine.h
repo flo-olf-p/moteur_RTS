@@ -16,8 +16,5 @@ public:
 
 private:
     Ui::RTS_EngineClass ui;
-
-    QtWidgetsDebugMenu* m_WidgetDebugMenu;
-    QtWidgetsSimulation* m_WidgetSimulation;
 };
 

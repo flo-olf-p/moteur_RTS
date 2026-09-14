@@ -13,5 +13,8 @@ public:
 
 private:
 	Ui::QtWidgetsDebugMenuClass ui;
+
+signals:
+	void gridSizeChanged(int newSize);
 };
 
