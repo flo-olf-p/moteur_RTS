@@ -1,4 +1,6 @@
-﻿public class CRabbit
+﻿#include "CAnimal.h"
+
+class CRabbit : public CAnimal
 {
     
 }
