@@ -13,5 +13,6 @@ public:
 
 private:
 	Ui::QtWidgetsSimulationClass ui;
+	void QtPaintEventGrid(QPaintEvent* event);
 };
 

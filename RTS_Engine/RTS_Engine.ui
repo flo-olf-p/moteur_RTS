@@ -6,31 +6,33 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>1300</width>
+    <height>1000</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>RTS_Engine</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="horizontalLayoutWidget">
+   <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>9</y>
-      <width>491</width>
-      <height>321</height>
+      <x>0</x>
+      <y>0</y>
+      <width>1000</width>
+      <height>1000</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QtWidgetsSimulation" name="widget" native="true"/>
-     </item>
-     <item>
-      <widget class="QtWidgetsDebugMenu" name="widget_2" native="true"/>
-     </item>
-    </layout>
+   </widget>
+   <widget class="QWidget" name="widget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>1000</x>
+      <y>0</y>
+      <width>300</width>
+      <height>1000</height>
+     </rect>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -38,7 +40,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
+     <width>1300</width>
      <height>21</height>
     </rect>
    </property>
@@ -54,20 +56,6 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>QtWidgetsDebugMenu</class>
-   <extends>QWidget</extends>
-   <header>QtWidgetsDebugMenu.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>QtWidgetsSimulation</class>
-   <extends>QWidget</extends>
-   <header>QtWidgetsSimulation.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
