@@ -18,6 +18,12 @@ set(PROJECT_SOURCES
     RTS_Engine.ui
     RTS_Engine.h
     RTS_Engine.cpp
+    QtWidgetsDebugMenu.cpp
+    QtWidgetsDebugMenu.h
+    QtWidgetsDebugMenu.ui
+    QtWidgetsSimulation.cpp
+    QtWidgetsSimulation.h
+    QtWidgetsSimulation.ui
 )
 
 qt_add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
