@@ -9,3 +9,4 @@
 ## Cours numéro 3 et 4 (14/09/2026)
 
 - Création des classes CRabbit, CAnimal, CWolf
+- Création des fonctions lié au déplacement des lapins et des loups
