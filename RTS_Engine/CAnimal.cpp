@@ -22,8 +22,33 @@ bool CAnimal::isAlive() const
 		
 	/*for (size_t i = 0; i < std::size(tab); i++)
 	{
-		    if (tab[i].m_location.first == m_location.first && tab[i].m_location.second == m_location.second && tab[i].)
+		    if ()
 	}*/
 	
 	return true;
+}
+
+void CAnimal::move(std::vector<std::vector<CCase>> grid)
+{
+    //0:haut, 1:droite, 2:bas, 3:gauche, dans le sens des aiguille d'une montre en commençant à midi en gros
+    int random = 0;
+    for (int i = 0; i < std::size(grid); i++)
+        for (int j = 0; j < std::size(grid[i]); j++)
+            for (int k = 0; k < 2; k++)
+                for (int l = 0; l < 2; l++)
+                    if (grid[i][j].get_array(k,l).get_animal() == this)
+                        if (random == 0)
+                            if (j == 0)
+                                
+                        else if (random == 1)
+                            if (i == std::size(grid)-1)
+                                
+                        else if (random == 2)
+                            if (j == std::size(grid[i])-1)
+                                
+                        else if (random == 3)
+                            else if (i == 0)
+                                
+                        else
+                            std::cerr << "le random n'a pas fonctionner";
 }
