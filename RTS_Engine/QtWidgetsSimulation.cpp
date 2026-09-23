@@ -67,7 +67,7 @@ void QtWidgetsSimulation::setGridSize(int newSize)
 	update();
 }
 
-void QtWidgetsSimulation::set_param_animals(std::string name, float speed, float reproduction_rate, float mortality_rate, float life_expectancy, float time_before_reproduction, float time_before_hunger){
+/*void QtWidgetsSimulation::set_param_animals(std::string name, float speed, float reproduction_rate, float mortality_rate, float life_expectancy, float time_before_reproduction, float time_before_hunger) {
 	std::get<0>(m_param_animals[std::size(m_param_animals)]) = name;
 	std::get<1>(m_param_animals[std::size(m_param_animals)]) = speed;
 	std::get<2>(m_param_animals[std::size(m_param_animals)]) = reproduction_rate;
@@ -75,4 +75,4 @@ void QtWidgetsSimulation::set_param_animals(std::string name, float speed, float
 	std::get<4>(m_param_animals[std::size(m_param_animals)]) = life_expectancy;
 	std::get<5>(m_param_animals[std::size(m_param_animals)]) = time_before_reproduction;
 	std::get<6>(m_param_animals[std::size(m_param_animals)]) = time_before_hunger;
-}
+}*/
