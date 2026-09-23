@@ -15,8 +15,12 @@ private:
     float m_time_before_hunger;
     std::pair<int,int> m_location;
     
-    /*GET------------------------------------------------------*/
 public:
+    /*const------------------------------------------------------*/
+    CAnimal(float speed, float reproduction_rate, float mortality_rate, float age,
+        float life_expectancy, float gender, float time_before_reproduction, float hunger);
+
+    /*GET------------------------------------------------------*/
     float get_speed(){return m_speed;}
     float get_reproduction_rate(){return m_reproduction_rate;}
     float get_mortality_rate(){return m_mortality_rate;}
@@ -44,5 +48,14 @@ public:
     bool Alive();
 	void story();
 protected:
+    /*members--------------------------------------------------*/
+    float m_speed;
+    float m_reproduction_rate;
+    float m_mortality_rate;
+    float m_age;
+    float m_life_expectancy;
+    float m_gender;
+    float m_time_before_reproduction;
+    float m_hunger;
     void shift();
 };
