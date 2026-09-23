@@ -26,3 +26,24 @@
         - Modélisation du modèle de population amélioré (modèle de Verhulst)
 
 ## Cours n° 5 (15/09/2026)
+### 2h de travail
+
+- Avancement des exercices de maths :
+
+    - Partie 1 : Systèmes dynamiques
+        - 1.4 - Modèle de Lotka-Volterra
+
+## Cours n° 6 (18/09/2026)
+### 2h de travail
+
+- Finition des exercices de maths de la partie 1 :
+
+    - Partie 1 : Systèmes dynamiques
+        - 1.4 - Modèle de Lotka-Volterra
+
+- Début de la réalisation d'un fichier Excel illustrant le modèle de Lotka-Volterra
+
+## Cours n° 7, 8 et 9 (23/09/2026)
+### 6h de travail
+
+- Finition du fichier Excel illustrant le modèle de Lotka-Volterra
