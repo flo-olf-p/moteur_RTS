@@ -25,3 +25,11 @@
 ## Cours numéro 5 (15/09/2026)
 
 ### 2h de travail
+
+- travail sur les maths du systèmes dynamiques discrets jusqu'a m'exo 4 du 2.1
+
+## Cours numéro 6 (23/09/2026)
+
+### 2h de travail
+
+- travail sur les maths du systèmes dynamiques discrets jusqu'a m'exo 6 du 2.2
