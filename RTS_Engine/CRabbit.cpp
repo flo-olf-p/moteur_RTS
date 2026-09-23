@@ -1,6 +1,6 @@
-﻿#include "CAnimal.h"
+﻿#include "CRabbit.h"
 
-class CRabbit : public CAnimal
+void CRabbit::move()
 {
-    
+
 }
