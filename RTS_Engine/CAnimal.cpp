@@ -1,7 +1,7 @@
 ﻿#include "CAnimal.h"
 
 
-CAnimal::CAnimal(float speed, float reproduction_rate, float mortality_rate, float age, float life_expectancy, float gender, float time_before_reproduction, float hunger)
+CAnimal::CAnimal(float speed, float reproduction_rate, float mortality_rate, float age, float life_expectancy, float gender, float time_before_reproduction, float hunger, std::pair<int, int> location)
 {
 	m_age = age;
 	m_gender = gender;
@@ -11,6 +11,7 @@ CAnimal::CAnimal(float speed, float reproduction_rate, float mortality_rate, flo
 	m_reproduction_rate = reproduction_rate;
 	m_mortality_rate = mortality_rate;
 	m_time_before_reproduction = time_before_reproduction;
+	m_location = location;
 }
 
 class CAnimal
@@ -21,7 +22,7 @@ class CAnimal
 		if(m_hunger == 0)
 			return false;
 		for(size_t i=0;i<std::size(tab);i++){
-		    if ()
+		    if (tab[i].m_location.first == m_location.first && tab[i].m_location.second == m_location.second && tab[i].)
 		}
 		return true;
 	}
