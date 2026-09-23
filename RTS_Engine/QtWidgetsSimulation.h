@@ -2,9 +2,8 @@
 
 #include <QWidget>
 #include "ui_QtWidgetsSimulation.h"
+#include "CTile.h"
 #include <vector>
-#include <tuple>
-#include <string>
 
 class QtWidgetsSimulation : public QWidget
 {
@@ -16,7 +15,8 @@ public:
 
 private:
 	Ui::QtWidgetsSimulationClass ui;
-	int m_SizeCase = 50; // Size of the grid squares
+	unsigned int m_SizeCase = 50;
+	std::vector<std::vector<CTile*>> m_board;
 
 protected:
 	void paintEvent(QPaintEvent* event) override;

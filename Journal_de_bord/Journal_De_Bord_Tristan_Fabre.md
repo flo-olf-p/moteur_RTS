@@ -47,3 +47,13 @@
 ### 6h de travail
 
 - Finition du fichier Excel illustrant le modèle de Lotka-Volterra
+
+- Travail sur le code du moteur RTS
+
+    - Modification et amélioration de la classe CAnimal
+    - Correction d'erreurs de compilation
+    - Mise en place de l'héritage avec les classes CRabbit et CWolf, en rendant CAnimal abstaite et non instanciable
+    - Implémentation de la classe CTile pour effectuer le lien entre le plateau et les animaux qui le compose
+
+## Cours n° 10 (24/09/2026)
+### 2h de travail
