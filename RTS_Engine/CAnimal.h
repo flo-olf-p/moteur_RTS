@@ -1,8 +1,19 @@
 ﻿#pragma once
 
 class CAnimal{
-   
-
+    /*members--------------------------------------------------*/
+private:
+	int animal_param_id;
+    float m_speed;
+    float m_reproduction_rate;
+    float m_mortality_rate;
+    float m_age;
+    float m_life_expectancy;
+    float m_gender;
+    float m_time_before_reproduction;
+    float m_hunger;
+    float m_time_before_hunger;
+    std::pair<int,int> m_location;
     
 public:
     /*const------------------------------------------------------*/
@@ -18,6 +29,7 @@ public:
     float get_gender(){return m_gender;};
     float get_time_before_reproduction(){return m_time_before_reproduction;}
     float get_hunger(){return m_hunger;}
+    float get_time_before_hunger(){return m_time_before_hunger;}
     std::pair<int,int> get_location(){return m_location;}
     
     /*SET------------------------------------------------------*/
@@ -29,6 +41,7 @@ public:
     void set_gender(float gender){m_gender = gender;}
     void set_time_before_reproduction(float time_before_reproduction){m_time_before_reproduction = time_before_reproduction;}
     void set_hunger(float hunger){m_hunger = hunger;}
+    void set_time_before_hunger(float time_before_hunger){m_time_before_hunger = time_before_hunger;}
     void set_location(std::pair<int,int> location){m_location = location;}
     
     /*FUNCTION-------------------------------------------------*/
