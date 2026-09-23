@@ -45,3 +45,5 @@
 
 ## Cours n° 7, 8 et 9 (23/09/2026)
 ### 6h de travail
+
+- Finition du fichier Excel illustrant le modèle de Lotka-Volterra
