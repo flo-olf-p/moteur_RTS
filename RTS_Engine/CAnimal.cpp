@@ -1,7 +1,10 @@
 ﻿#include "CAnimal.h"
 
+#include <iostream>
+#include <vector>
+
 CAnimal::CAnimal(unsigned int speed, float reproduction_rate, float mortality_rate,
-	unsigned int life_expectancy, unsigned int reproduction_delay, unsigned int hunger_delay)
+                 unsigned int life_expectancy, unsigned int reproduction_delay, unsigned int hunger_delay)
 {
 	//m_gender = gender;
 	m_life_expectancy = life_expectancy;
@@ -33,7 +36,7 @@ void CAnimal::humdrum(std::vector<std::vector<CCase>> grid)
 	//x: de gauche à droite
     for (int x = 0; x < std::size(grid); x++)
 		//y: de haut en bas
-        for (int y = 0; y < std::size(grid[i]); y++)
+        for (int y = 0; y < std::size(grid[x]); y++)
 			//zx: array de droite à gauche
             for (int zx = 0; zx < 2; zx++)
 				//zy: array de haut en bas
@@ -63,7 +66,7 @@ void CAnimal::move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigne
 				{
 					grid[x][std::size(grid[x])-1].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
 					grid[x][y].set_array(nullptr, zx, zy);
-					this.m_age++;
+					this->m_age++;
 					random = 4;
 				}
 			}
@@ -76,7 +79,7 @@ void CAnimal::move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigne
 				{
 					grid[x][y-1].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
 					grid[x][y].set_array(nullptr, zx, zy);
-					this.m_age++;
+					this->m_age++;
 					random = 4;
 				}
 			}
@@ -85,7 +88,7 @@ void CAnimal::move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigne
         else if (random == 1)
 		{
 			//bordure droite
-            if (i == std::size(grid)-1)
+            if (x == std::size(grid)-1)
 			{
 				ischeck = grid[0][y].check();
 				if (ischeck.first == 4 && ischeck.second == 4)
@@ -94,7 +97,7 @@ void CAnimal::move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigne
 				{
 					grid[0][y].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
 					grid[x][y].set_array(nullptr, zx, zy);
-					this.m_age++;
+					this->m_age++;
 					random = 4;
 				}
 			}
@@ -107,7 +110,7 @@ void CAnimal::move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigne
 				{
 					grid[x][y-1].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
 					grid[x][y].set_array(nullptr, zx, zy);
-					this.m_age++;
+					this->m_age++;
 					random = 4;
 				}
 			}
@@ -125,7 +128,7 @@ void CAnimal::move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigne
 				{
 					grid[x][0].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
 					grid[x][y].set_array(nullptr, zx, zy);
-					this.m_age++;
+					this->m_age++;
 					random = 4;
 				}
 			}
@@ -138,7 +141,7 @@ void CAnimal::move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigne
 				{
 					grid[x][y+1].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
 					grid[x][y].set_array(nullptr, zx, zy);
-					this.m_age++;
+					this->m_age++;
 					random = 4;
 				}
 			}
@@ -156,7 +159,7 @@ void CAnimal::move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigne
 				{
 					grid[std::size(grid)-1][y].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
 					grid[x][y].set_array(nullptr, zx, zy);
-					this.m_age++;
+					this->m_age++;
 					random = 4;
 				}
 			}
@@ -169,7 +172,7 @@ void CAnimal::move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigne
 				{
 					grid[x-1][y].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
 					grid[x][y].set_array(nullptr, zx, zy);
-					this.m_age++;
+					this->m_age++;
 					random = 4;
 				}
 			}
@@ -177,13 +180,13 @@ void CAnimal::move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigne
         else
 		{
             std::cerr << "le random n'a pas fonctionner";
-			return 0;
+			return ;
 		}
 	}
-	return 1;
+	return ;
 }
 
-std::pair<unsigned int x, unsigned int y> CAnimal::check()
+std::pair<unsigned int, unsigned int> CAnimal::check() const
 {
 	return std::pair<unsigned int, unsigned int>(4, 4);
 }
