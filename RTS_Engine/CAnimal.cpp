@@ -88,7 +88,7 @@ void CAnimal::move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigne
         else if (random == 1)
 		{
 			//bordure droite
-            if (i == std::size(grid)-1)
+            if (x == std::size(grid)-1)
 			{
 				ischeck = grid[0][y].check();
 				if (ischeck.first == 4 && ischeck.second == 4)
@@ -186,7 +186,7 @@ void CAnimal::move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigne
 	return ;
 }
 
-std::pair<unsigned int, unsigned int> CAnimal::check()
+std::pair<unsigned int, unsigned int> CAnimal::check() const
 {
 	return std::pair<unsigned int, unsigned int>(4, 4);
 }

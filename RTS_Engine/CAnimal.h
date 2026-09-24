@@ -52,5 +52,5 @@ public:
     
     virtual void humdrum(std::vector<std::vector<CCase>> grid);
     
-    std::pair<unsigned int, unsigned int> check();
+    std::pair<unsigned int, unsigned int> check() const;
 };
