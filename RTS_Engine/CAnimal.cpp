@@ -13,7 +13,7 @@ CAnimal::CAnimal(unsigned int speed, float reproduction_rate, float mortality_ra
 	//m_location = location;
 }
 
-bool CAnimal::isAlive() const
+bool CAnimal::isAlive(std::vector<std::vector<CCase>> grid, unsigned int x, unsigned int y) const
 {
 	if (m_age >= m_life_expectancy || m_hunger == 0)
 	{
@@ -28,27 +28,162 @@ bool CAnimal::isAlive() const
 	return true;
 }
 
-void CAnimal::move(std::vector<std::vector<CCase>> grid)
+void CAnimal::humdrum(std::vector<std::vector<CCase>> grid)
 {
-    //0:haut, 1:droite, 2:bas, 3:gauche, dans le sens des aiguille d'une montre en commençant à midi en gros
+	//x: de gauche à droite
+    for (int x = 0; x < std::size(grid); x++)
+		//y: de haut en bas
+        for (int y = 0; y < std::size(grid[i]); y++)
+			//zx: array de droite à gauche
+            for (int zx = 0; zx < 2; zx++)
+				//zy: array de haut en bas
+                for (int zy = 0; zy < 2; zy++)
+					if(grid[x][y].get_array(zx,zy).get_animal() != nullptr)
+						if(grid[x][y].get_array(zx,zy).get_animal().isAlive(grid,x,y)==true)
+							grid[x][y].get_array(zx,zy).get_animal().move(grid,x,y,zx,zy);
+}
+
+void CAnimal::move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigned int y, unsigned int zx, unsigned int zy)
+{
+    //0:haut, 1:droite, 2:bas, 3:gauche, dans le sens des aiguille d'une montre en commençant à midi en gros, et 4 c'est la boucle qui s'arrête
     int random = 0;
-    for (int i = 0; i < std::size(grid); i++)
-        for (int j = 0; j < std::size(grid[i]); j++)
-            for (int k = 0; k < 2; k++)
-                for (int l = 0; l < 2; l++)
-                    if (grid[i][j].get_array(k,l).get_animal() == this)
-                        if (random == 0)
-                            if (j == 0)
-                                
-                        else if (random == 1)
-                            if (i == std::size(grid)-1)
-                                
-                        else if (random == 2)
-                            if (j == std::size(grid[i])-1)
-                                
-                        else if (random == 3)
-                            else if (i == 0)
-                                
-                        else
-                            std::cerr << "le random n'a pas fonctionner";
+	std::pair<unsigned int, unsigned int> ischeck;
+	while (random == 4)
+	{
+		//haut
+        if (random == 0)
+		{
+			//bordure haut
+            if (y == 0)
+			{
+				ischeck = grid[x][std::size(grid[x])-1].check();
+				if (ischeck.first == 4 && ischeck.second == 4)
+					random = 1;
+				else
+				{
+					grid[x][std::size(grid[x])-1].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
+					grid[x][y].set_array(nullptr, zx, zy);
+					this.m_age++;
+					random = 4;
+				}
+			}
+			else
+			{
+				ischeck = grid[x][y-1].check();
+				if (ischeck.first == 4 && ischeck.second == 4)
+					random = 1;
+				else
+				{
+					grid[x][y-1].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
+					grid[x][y].set_array(nullptr, zx, zy);
+					this.m_age++;
+					random = 4;
+				}
+			}
+		}
+		//droite
+        else if (random == 1)
+		{
+			//bordure droite
+            if (i == std::size(grid)-1)
+			{
+				ischeck = grid[0][y].check();
+				if (ischeck.first == 4 && ischeck.second == 4)
+					random = 2;
+				else
+				{
+					grid[0][y].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
+					grid[x][y].set_array(nullptr, zx, zy);
+					this.m_age++;
+					random = 4;
+				}
+			}
+			else
+			{
+				ischeck = grid[x][y-1].check();
+				if (ischeck.first == 4 && ischeck.second == 4)
+					random = 2;
+				else
+				{
+					grid[x][y-1].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
+					grid[x][y].set_array(nullptr, zx, zy);
+					this.m_age++;
+					random = 4;
+				}
+			}
+		}
+		//bas
+        else if (random == 2)
+		{
+			//bordure bas
+            if (y == std::size(grid[x])-1)
+			{
+				ischeck = grid[x][0].check();
+				if (ischeck.first == 4 && ischeck.second == 4)
+					random = 3;
+				else
+				{
+					grid[x][0].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
+					grid[x][y].set_array(nullptr, zx, zy);
+					this.m_age++;
+					random = 4;
+				}
+			}
+			else
+			{
+				ischeck = grid[x][y+1].check();
+				if (ischeck.first == 4 && ischeck.second == 4)
+					random = 3;
+				else
+				{
+					grid[x][y+1].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
+					grid[x][y].set_array(nullptr, zx, zy);
+					this.m_age++;
+					random = 4;
+				}
+			}
+		}
+		//gauche
+        else if (random == 3)
+		{
+			//brodure gauche
+            if (x == 0)
+			{
+				ischeck = grid[std::size(grid)-1][y].check();
+				if (ischeck.first == 4 && ischeck.second == 4)
+					random = 0;
+				else
+				{
+					grid[std::size(grid)-1][y].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
+					grid[x][y].set_array(nullptr, zx, zy);
+					this.m_age++;
+					random = 4;
+				}
+			}
+			else
+			{
+				ischeck = grid[x-1][y].check();
+				if (ischeck.first == 4 && ischeck.second == 4)
+					random = 3;
+				else
+				{
+					grid[x-1][y].set_array(grid[x][y].get_array(zx, zy).get_animal, ischeck.first, ischeck.second);
+					grid[x][y].set_array(nullptr, zx, zy);
+					this.m_age++;
+					random = 4;
+				}
+			}
+		}
+        else
+		{
+            std::cerr << "le random n'a pas fonctionner";
+			return 0;
+		}
+	}
+	return 1;
+}
+
+std::pair<unsigned int x, unsigned int y> CAnimal::check()
+{
+	return std::pair<unsigned int, unsigned int>(4, 4);
 }
