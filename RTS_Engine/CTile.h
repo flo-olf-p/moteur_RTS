@@ -17,4 +17,6 @@ public:
 
 	void set_animals(std::array<std::array<CAnimal*, 2>, 2> animals) { m_animals = animals; }
 	void set_animal(CAnimal* animal, size_t x, size_t y) { m_animals[x][y] = animal; }
+	bool isTile_full(CTile& tile) const;
+	bool isTile_empty(CTile& tile) const;
 };

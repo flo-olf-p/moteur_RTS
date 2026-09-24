@@ -57,3 +57,10 @@
 
 ## Cours n° 10 (24/09/2026)
 ### 2h de travail
+
+- Travail sur le code du moteur RTS
+
+    - Ajout de fonctions dans la classe CTile
+    - Mise à jour du diagramme de classes
+    - Amélioration du menu de Debug
+    - Début du travail de liaison entre la simulation et le plateau
