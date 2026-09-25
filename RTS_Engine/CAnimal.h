@@ -52,5 +52,7 @@ public:
     
     virtual void humdrum(std::vector<std::vector<CCase>> grid);
     
-    std::pair<unsigned int, unsigned int> check() const;
+    std::pair<unsigned int, unsigned int> checkPlaces() const;
+    
+    std::pair<unsigned int, unsigned int> checkWolf() const;
 };
