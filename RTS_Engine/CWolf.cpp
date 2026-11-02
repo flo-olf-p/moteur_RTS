@@ -1,5 +1,5 @@
-﻿#include "CAnimal.h"
+﻿#include "CWolf.h"
 
-class CWolf : public CAnimal
+void CWolf::move()
 {
-};
+}

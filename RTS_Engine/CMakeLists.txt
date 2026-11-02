@@ -15,6 +15,12 @@ set(CMAKE_AUTORCC ON)
 
 set(PROJECT_SOURCES
     main.cpp
+    CAnimal.h
+    CAnimal.cpp
+    CRabbit.h
+    CRabbit.cpp
+    CWolf.h
+    CWolf.cpp
     RTS_Engine.ui
     RTS_Engine.h
     RTS_Engine.cpp
