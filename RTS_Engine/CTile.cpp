@@ -54,3 +54,14 @@ bool CTile::is_tile_empty(CTile& tile) const
 
 	return true;
 }
+
+
+std::pair<size_t, size_t> CAnimal::checkWolf() const
+{
+	return std::pair<size_t, size_t>(4, 4);
+}
+
+std::pair<unsigned int, unsigned int> CAnimal::checkPlaces() const
+{
+	return std::pair<unsigned int, unsigned int>(4, 4);
+}

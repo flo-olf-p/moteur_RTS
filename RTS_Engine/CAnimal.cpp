@@ -2,9 +2,10 @@
 
 #include <iostream>
 #include <vector>
+#include <random>
 
 CAnimal::CAnimal(unsigned int speed, float reproduction_rate, float mortality_rate,
-                 unsigned int life_expectancy, unsigned int reproduction_delay, unsigned int hunger_delay)
+                 unsigned int life_expectancy, unsigned int reproduction_delay, unsigned int hunger_delay, bool is_Carnivorous)
 {
 	//m_gender = gender;
 	m_life_expectancy = life_expectancy;
@@ -14,6 +15,7 @@ CAnimal::CAnimal(unsigned int speed, float reproduction_rate, float mortality_ra
 	m_reproduction_delay = reproduction_delay;
 	m_hunger_delay = hunger_delay;
 	//m_location = location;
+	m_is_Carnivorous = is_Carnivorous;
 }
 
 bool CAnimal::isAlive(std::vector<std::vector<CTile>> grid, unsigned int x, unsigned int y) const
@@ -22,23 +24,23 @@ bool CAnimal::isAlive(std::vector<std::vector<CTile>> grid, unsigned int x, unsi
 	{
 		return false;
 	}
-	std::pair<unsigned int, unsigned int> isWolf = grid[x][y].checkWolf();
+	std::pair<size_t, size_t> isWolf = grid[x][y].checkWolf();
 	if (isWolf.first != 4 && isWolf.second != 4)
 	{
-		int rand = rand()%2 +1;
+		int rand = std::rand()%2 +1;
 		if (rand == 2)
 		{
 			return false;
 		}
 		//Plus tard dans les étapes :
-		if (grid[x][y].get_array(isWolf.first, isWolf.second).get_animal()->m_hunger <= grid[x][y].get_array(isWolf.first, isWolf.second).get_animal()->m_hunger_delay)
+		if (grid[x][y].get_animal(isWolf.first, isWolf.second)->m_hunger <= grid[x][y].get_animal(isWolf.first, isWolf.second)->m_hunger_delay)
 		{
-			grid[x][y].get_array(isWolf.first, isWolf.second).get_animal()->m_hunger += 4;
+			grid[x][y].get_animal(isWolf.first, isWolf.second)->m_hunger += 4;
 		 	return false;
 		}
 	}
 	
-	int rand = rand()%(this->get_mortality_rate()/10) +1;
+	int rand = std::rand()%((int)this->get_mortality_rate()/10) +1;
 	if (rand == 1)
 	{
 		return false;
@@ -61,15 +63,15 @@ void CAnimal::humdrum(std::vector<std::vector<CTile>> grid)
     			//zy: array de haut en bas
     			for (int zy = 0; zy < 2; zy++)
     			{
-    				if(grid[x][y].get_array(zx,zy).get_animal() != nullptr)
+    				if(grid[x][y].get_animal(zx,zy) != nullptr)
     				{
-    					if(grid[x][y].get_array(zx,zy).get_animal().isAlive(grid,x,y)==true)
+    					if(grid[x][y].get_animal(zx,zy)->isAlive(grid,x,y)==true)
     					{
-    						grid[x][y].get_array(zx,zy).get_animal().move(grid,x,y,zx,zy);
+    						grid[x][y].get_animal(zx,zy)->move(grid,x,y,zx,zy);
     					}
     					else
     					{
-    						grid[x][y].get_array(zx,zy).kill();
+							grid[x][y].get_animal(zx, zy)->~CAnimal();
     					}
     				}
     			}
@@ -78,21 +80,15 @@ void CAnimal::humdrum(std::vector<std::vector<CTile>> grid)
     }
 }
 
-std::pair<unsigned int, unsigned int> CAnimal::checkPlaces() const
-{
-	return std::pair<unsigned int, unsigned int>(4, 4);
-}
 
-std::pair<unsigned int, unsigned int> CAnimal::checkWolf() const
-{
-	return std::pair<unsigned int, unsigned int>(4, 4);
-}
+
+
 
 void CAnimal::move(std::vector<std::vector<CTile>> grid, unsigned int x, unsigned int y, unsigned int zx, unsigned int zy)
 {
 	//0:haut, 1:droite, 2:bas, 3:gauche, dans le sens des aiguille d'une montre en commençant à midi en gros, et 4 c'est la boucle qui s'arrête
 	
-	int rand = rand()%3 +0;
+	int rand = std::rand()%3 +0;
 	int const random = rand;
 	std::pair<unsigned int, unsigned int> isPlace;
 	while (rand == 4)
@@ -117,8 +113,8 @@ void CAnimal::move(std::vector<std::vector<CTile>> grid, unsigned int x, unsigne
 				}
 				else
 				{
-					grid[x][std::size(grid[x])-1].set_array(grid[x][y].get_array(zx, zy).get_animal, isPlace.first, isPlace.second);
-					grid[x][y].set_array(nullptr, zx, zy);
+					grid[x][std::size(grid[x])-1].set_animal(grid[x][y].get_animal(zx, zy), isPlace.first, isPlace.second);
+					grid[x][y].set_animal(nullptr, zx, zy);
 					this->m_age++;
 					rand = 4;
 				}
@@ -139,8 +135,8 @@ void CAnimal::move(std::vector<std::vector<CTile>> grid, unsigned int x, unsigne
 				}
 				else
 				{
-					grid[x][y-1].set_array(grid[x][y].get_array(zx, zy).get_animal, isPlace.first, isPlace.second);
-					grid[x][y].set_array(nullptr, zx, zy);
+					grid[x][y-1].set_animal(grid[x][y].get_animal(zx, zy), isPlace.first, isPlace.second);
+					grid[x][y].set_animal(nullptr, zx, zy);
 					this->m_age++;
 					rand = 4;
 				}
@@ -164,8 +160,8 @@ void CAnimal::move(std::vector<std::vector<CTile>> grid, unsigned int x, unsigne
 				}
 				else
 				{
-					grid[0][y].set_array(grid[x][y].get_array(zx, zy).get_animal, isPlace.first, isPlace.second);
-					grid[x][y].set_array(nullptr, zx, zy);
+					grid[0][y].set_animal(grid[x][y].get_animal(zx, zy), isPlace.first, isPlace.second);
+					grid[x][y].set_animal(nullptr, zx, zy);
 					this->m_age++;
 					rand = 4;
 				}
@@ -184,8 +180,8 @@ void CAnimal::move(std::vector<std::vector<CTile>> grid, unsigned int x, unsigne
 				}
 				else
 				{
-					grid[x][y-1].set_array(grid[x][y].get_array(zx, zy).get_animal, isPlace.first, isPlace.second);
-					grid[x][y].set_array(nullptr, zx, zy);
+					grid[x][y-1].set_animal(grid[x][y].get_animal(zx, zy), isPlace.first, isPlace.second);
+					grid[x][y].set_animal(nullptr, zx, zy);
 					this->m_age++;
 					rand = 4;
 				}
@@ -209,8 +205,8 @@ void CAnimal::move(std::vector<std::vector<CTile>> grid, unsigned int x, unsigne
 				}
 				else
 				{
-					grid[x][0].set_array(grid[x][y].get_array(zx, zy).get_animal, isPlace.first, isPlace.second);
-					grid[x][y].set_array(nullptr, zx, zy);
+					grid[x][0].set_animal(grid[x][y].get_animal(zx, zy), isPlace.first, isPlace.second);
+					grid[x][y].set_animal(nullptr, zx, zy);
 					this->m_age++;
 					rand = 4;
 				}
@@ -229,8 +225,8 @@ void CAnimal::move(std::vector<std::vector<CTile>> grid, unsigned int x, unsigne
 				}
 				else
 				{
-					grid[x][y+1].set_array(grid[x][y].get_array(zx, zy).get_animal, isPlace.first, isPlace.second);
-					grid[x][y].set_array(nullptr, zx, zy);
+					grid[x][y+1].set_animal(grid[x][y].get_animal(zx, zy), isPlace.first, isPlace.second);
+					grid[x][y].set_animal(nullptr, zx, zy);
 					this->m_age++;
 					rand = 4;
 				}
@@ -254,8 +250,8 @@ void CAnimal::move(std::vector<std::vector<CTile>> grid, unsigned int x, unsigne
 				}
 				else
 				{
-					grid[std::size(grid)-1][y].set_array(grid[x][y].get_array(zx, zy).get_animal, isPlace.first, isPlace.second);
-					grid[x][y].set_array(nullptr, zx, zy);
+					grid[std::size(grid)-1][y].set_animal(grid[x][y].get_animal(zx, zy), isPlace.first, isPlace.second);
+					grid[x][y].set_animal(nullptr, zx, zy);
 					this->m_age++;
 					rand = 4;
 				}
@@ -274,8 +270,8 @@ void CAnimal::move(std::vector<std::vector<CTile>> grid, unsigned int x, unsigne
 				}
 				else
 				{
-					grid[x-1][y].set_array(grid[x][y].get_array(zx, zy).get_animal, isPlace.first, isPlace.second);
-					grid[x][y].set_array(nullptr, zx, zy);
+					grid[x-1][y].set_animal(grid[x][y].get_animal(zx, zy), isPlace.first, isPlace.second);
+					grid[x][y].set_animal(nullptr, zx, zy);
 					this->m_age++;
 					rand = 4;
 				}
