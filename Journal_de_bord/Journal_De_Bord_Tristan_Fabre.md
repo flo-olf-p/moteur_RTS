@@ -64,3 +64,11 @@
     - Mise à jour du diagramme de classes
     - Amélioration du menu de Debug
     - Début du travail de liaison entre la simulation et le plateau
+
+## Cours n° 11 (02/11/2026)
+### 2h de travail
+
+- Correction d'une erreur de compilation liée à CMake et à au compilateur utilisé
+
+## Cours n° 12 (16/11/2026)
+### 2h de travail

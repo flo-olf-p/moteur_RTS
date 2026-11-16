@@ -18,7 +18,7 @@ CTile::~CTile()
 	}
 }
 
-bool CTile::isTile_full(CTile& tile) const
+bool CTile::is_tile_full(CTile& tile) const
 {
 	const unsigned int size = std::size(m_animals);
 
@@ -36,7 +36,7 @@ bool CTile::isTile_full(CTile& tile) const
 	return true;
 }
 
-bool CTile::isTile_empty(CTile& tile) const
+bool CTile::is_tile_empty(CTile& tile) const
 {
 
 	const unsigned int size = std::size(m_animals);
