@@ -16,7 +16,7 @@ CAnimal::CAnimal(unsigned int speed, float reproduction_rate, float mortality_ra
 	//m_location = location;
 }
 
-bool CAnimal::isAlive(std::vector<std::vector<CCase>> grid, unsigned int x, unsigned int y) const
+bool CAnimal::isAlive(std::vector<std::vector<CTile>> grid, unsigned int x, unsigned int y) const
 {
 	if (m_age >= m_life_expectancy || m_hunger == 0)
 	{
@@ -47,7 +47,7 @@ bool CAnimal::isAlive(std::vector<std::vector<CCase>> grid, unsigned int x, unsi
 	return true;
 }
 
-void CAnimal::humdrum(std::vector<std::vector<CCase>> grid)
+void CAnimal::humdrum(std::vector<std::vector<CTile>> grid)
 {
 	//x: de gauche à droite
     for (int x = 0; x < std::size(grid); x++)
@@ -88,7 +88,7 @@ std::pair<unsigned int, unsigned int> CAnimal::checkWolf() const
 	return std::pair<unsigned int, unsigned int>(4, 4);
 }
 
-void CAnimal::move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigned int y, unsigned int zx, unsigned int zy)
+void CAnimal::move(std::vector<std::vector<CTile>> grid, unsigned int x, unsigned int y, unsigned int zx, unsigned int zy)
 {
 	//0:haut, 1:droite, 2:bas, 3:gauche, dans le sens des aiguille d'une montre en commençant à midi en gros, et 4 c'est la boucle qui s'arrête
 	
