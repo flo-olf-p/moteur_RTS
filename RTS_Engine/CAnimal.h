@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <vector>
 //#include <utility> //std::pair
+#include "CTile.h"
 
 class CAnimal
 {
@@ -15,11 +16,14 @@ protected:
     unsigned int m_hunger = 10;
     unsigned int m_hunger_delay;
     //std::pair<int,int> m_location; Plutot un CTile* ? Classe à faire
+    bool m_is_Carnivorous;
     
 public:
 
     CAnimal(unsigned int speed, float reproduction_rate, float mortality_rate,
-        unsigned int life_expectancy, unsigned int reproduction_delay, unsigned int hunger_delay);
+        unsigned int life_expectancy, unsigned int reproduction_delay, unsigned int hunger_delay, bool is_Carnivorous);
+    ~CAnimal();
+
 
     /*GETTERS------------------------------------------------------*/
     unsigned int get_speed() const {return m_speed;}
@@ -31,6 +35,7 @@ public:
     unsigned int get_reproduction_delay() const {return m_reproduction_delay;}
     unsigned int get_hunger()const {return m_hunger;}
     unsigned int get_hunger_delay()const {return m_hunger_delay;}
+    bool get_is_carnivorous() const { return m_is_Carnivorous; }
     //std::pair<int,int> get_location(){return m_location;}
     
     /*SETTERS------------------------------------------------------*/
@@ -52,7 +57,7 @@ public:
     
     virtual void humdrum(std::vector<std::vector<CTile>> grid);
     
-    std::pair<unsigned int, unsigned int> checkPlaces() const;
+   
     
-    std::pair<unsigned int, unsigned int> checkWolf() const;
+   
 };
