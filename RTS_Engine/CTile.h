@@ -19,4 +19,6 @@ public:
 	void set_animal(CAnimal* animal, size_t x, size_t y) { m_animals[x][y] = animal; }
 	bool is_tile_full(CTile& tile) const;
 	bool is_tile_empty(CTile& tile) const;
+	std::pair<size_t, size_t> checkWolf() const;
+	std::pair<unsigned int, unsigned int> checkPlaces() const;
 };
