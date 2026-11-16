@@ -21,6 +21,8 @@ set(PROJECT_SOURCES
     CRabbit.cpp
     CWolf.h
     CWolf.cpp
+    CTile.h
+    CTile.cpp
     RTS_Engine.ui
     RTS_Engine.h
     RTS_Engine.cpp
@@ -40,4 +42,3 @@ set_target_properties(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Core Qt6::Gui Qt6::Widgets)
-
