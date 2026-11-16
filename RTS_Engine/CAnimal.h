@@ -46,11 +46,11 @@ public:
     //void set_location(std::pair<int,int> location){m_location = location;}
     
     /*FUNCTIONS------------------------------------------------------*/
-    bool isAlive(std::vector<std::vector<CCase>> grid, unsigned int x, unsigned int y) const;
+    bool isAlive(std::vector<std::vector<CTile>> grid, unsigned int x, unsigned int y) const;
 	//void story() const;
-    virtual void move(std::vector<std::vector<CCase>> grid, unsigned int x, unsigned int y, unsigned int zx, unsigned int zy) =0; 
+    virtual void move(std::vector<std::vector<CTile>> grid, unsigned int x, unsigned int y, unsigned int zx, unsigned int zy) =0; 
     
-    virtual void humdrum(std::vector<std::vector<CCase>> grid);
+    virtual void humdrum(std::vector<std::vector<CTile>> grid);
     
     std::pair<unsigned int, unsigned int> checkPlaces() const;
     
