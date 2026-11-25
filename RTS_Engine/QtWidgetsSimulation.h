@@ -29,7 +29,7 @@ private:
 
 	void initializeBoard();
 	void reinitializeBoard();
-	void updateTile(CTile* tile, std::array<CTile*, 4> tileBetweenThis);
+	void updateTile(CTile* tile, std::array<CTile*, 4> neighbors, std::unordered_set<CAnimal*>& moved);
 
 protected:
 	void paintEvent(QPaintEvent* event) override;

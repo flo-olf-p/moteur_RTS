@@ -13,6 +13,7 @@ CTile::~CTile()
 	{
 		for (size_t j = 0; j < size; ++j)
 		{
+			delete m_animals[i][j];
 			m_animals[i][j] = nullptr;
 		}
 	}
