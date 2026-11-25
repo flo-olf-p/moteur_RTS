@@ -1,4 +1,5 @@
 #include "QtWidgetsSimulation.h"
+#include <iostream>
 
 QtWidgetsSimulation::QtWidgetsSimulation(QWidget* parent)
 	: QWidget(parent)
@@ -31,8 +32,8 @@ void QtWidgetsSimulation::initializeBoard()
 		m_board[x].resize(gridHeight);
 		for (int y = 0; y < gridHeight; ++y)
 		{
-			std::array<std::array<CAnimal*, 2>, 2> emptyAnimals = { {{nullptr, nullptr}, {nullptr, nullptr}} };
-			m_board[x][y] = new CTile(emptyAnimals);
+			std::array<std::array<CAnimal*, 2>, 2> animals = { {{nullptr,nullptr},{nullptr,nullptr}} };
+			m_board[x][y] = new CTile(animals);
 		}
 	}
 }
@@ -68,10 +69,79 @@ void QtWidgetsSimulation::reinitializeBoard()
 		m_board[x].resize(gridHeight);
 		for (int y = 0; y < gridHeight; ++y)
 		{
-			std::array<std::array<CAnimal*, 2>, 2> emptyAnimals = { {{nullptr, nullptr}, {nullptr, nullptr}} };
-			m_board[x][y] = new CTile(emptyAnimals);
+			std::array<std::array<CAnimal*, 2>, 2> animals = { {{nullptr,nullptr},{nullptr,nullptr}} };
+			m_board[x][y] = new CTile(animals);
 		}
 	}
+}
+
+void QtWidgetsSimulation::updateTile(CTile* tile, std::array<CTile*, 4> neighbors)
+{
+	
+	std::vector<CTile*> neighborsAvaliable;
+	for(auto ele : neighbors)
+	{
+		if (!ele->is_tile_full())
+		{
+			neighborsAvaliable.push_back(ele);
+		}
+	}
+	std::array<std::array<CAnimal*, 2>, 2> animalsInThisTile = tile->get_animals();
+	for (size_t i = 0; i < animalsInThisTile.size(); i++)
+	{
+		for (size_t j = 0; j < animalsInThisTile[i].size(); j++)
+		{
+			CAnimal* animal = animalsInThisTile[i][j];
+			if (animal != nullptr)
+			{
+
+				if (neighborsAvaliable.empty())
+				{
+					return;
+				}
+				CTile* randomTileAvaliable = neighborsAvaliable[std::rand() % neighborsAvaliable.size()];
+				if (!randomTileAvaliable->is_tile_full())
+				{
+					if (neighborsAvaliable.empty())
+					{
+						return;
+					}
+					std::vector<std::pair<unsigned int, unsigned int>> freePlaces = randomTileAvaliable->checkPlaces();
+					if (!freePlaces.empty())
+					{
+						std::pair<unsigned int, unsigned int> randomFreePlaces = freePlaces[std::rand() % freePlaces.size()];
+						randomTileAvaliable->set_animal(animal, randomFreePlaces.first, randomFreePlaces.second);
+						tile->set_animal(nullptr, i, j);
+					}
+				}
+				else
+				{
+					std::erase(neighborsAvaliable, randomTileAvaliable);
+				}
+			}
+		}
+	}
+	
+}
+
+void QtWidgetsSimulation::updateSimulation()
+{
+	qDebug() << "début de l'update";
+	size_t sizeAxeX = m_board.size();
+	for (size_t i = 0; i < sizeAxeX; i++)
+	{
+		size_t sizeAxeY = m_board[i].size();
+		for (size_t j = 0; j < sizeAxeY; j++)
+		{
+			CTile* currentTile = m_board[i][j];
+			if (!currentTile->is_tile_empty())
+			{
+				std::array<CTile*, 4> neighbors = { m_board[(i - 1) % sizeAxeX][j] ,m_board[(i + 1) % sizeAxeX][j] ,m_board[i][(j - 1) % sizeAxeY] ,m_board[i][(j + 1) % sizeAxeY] };
+				updateTile(currentTile, neighbors);
+			}
+		}
+	}
+	qDebug() << "fin de l'update";
 }
 
 void QtWidgetsSimulation::paintEvent(QPaintEvent* event)
@@ -176,6 +246,12 @@ void QtWidgetsSimulation::addAnimalButton(int PredNumber, int HerbNumber)
 	}
 
 	update();
+}
+
+void QtWidgetsSimulation::endTurn()
+{
+	std::cout << "boutton appuyé endturn";
+	updateSimulation();
 }
 
 void QtWidgetsSimulation::setGridSize(int newSize)

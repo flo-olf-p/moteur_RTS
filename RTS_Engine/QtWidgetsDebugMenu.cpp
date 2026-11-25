@@ -1,4 +1,6 @@
 #include "QtWidgetsDebugMenu.h"
+#include <iostream>
+#include <qdebug.h>
 
 QtWidgetsDebugMenu::QtWidgetsDebugMenu(QWidget *parent)
 	: QWidget(parent)
@@ -18,6 +20,10 @@ QtWidgetsDebugMenu::QtWidgetsDebugMenu(QWidget *parent)
 
 
 			emit addAnimalButton(PredNumber, HerbNumber);
+		});
+	connect(ui.EndTurn, &QPushButton::clicked, this, [this]()
+		{
+			emit endTurn();
 		});
 }
 

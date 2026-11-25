@@ -20,7 +20,7 @@ public:
 	void set_tile(CTile& tile, size_t x, size_t y) { m_board[x][y] = &tile; }
 
 	void addAnimalToBoard(CAnimal* animal, int boardX, int boardY, int tileX, int tileY);
-	void reinitializeBoard();
+	void updateSimulation();
 
 private:
 	Ui::QtWidgetsSimulationClass ui;
@@ -28,6 +28,8 @@ private:
 	std::vector<std::vector<CTile*>> m_board;
 
 	void initializeBoard();
+	void reinitializeBoard();
+	void updateTile(CTile* tile, std::array<CTile*, 4> tileBetweenThis);
 
 protected:
 	void paintEvent(QPaintEvent* event) override;
@@ -38,5 +40,6 @@ protected:
 public slots:
     void setGridSize(int newSize);
 	void addAnimalButton(int PredNumber, int HerbNumber);
+	void endTurn();
 };
 
