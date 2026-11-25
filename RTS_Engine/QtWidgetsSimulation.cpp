@@ -5,7 +5,7 @@ QtWidgetsSimulation::QtWidgetsSimulation(QWidget* parent)
 {
 	ui.setupUi(this);
 	initializeBoard();
-
+	
 }
 
 QtWidgetsSimulation::~QtWidgetsSimulation()
@@ -48,6 +48,32 @@ void QtWidgetsSimulation::addAnimalToBoard(CAnimal* animal, int boardX, int boar
 	}
 }
 
+void QtWidgetsSimulation::reinitializeBoard()
+{
+	for (auto& row : m_board)
+	{
+		for (auto tile : row)
+		{
+			delete tile;
+		}
+	}
+	m_board.clear();
+
+	int gridWidth = width() / m_SizeCase;
+	int gridHeight = height() / m_SizeCase;
+
+	m_board.resize(gridWidth);
+	for (int x = 0; x < gridWidth; ++x)
+	{
+		m_board[x].resize(gridHeight);
+		for (int y = 0; y < gridHeight; ++y)
+		{
+			std::array<std::array<CAnimal*, 2>, 2> emptyAnimals = { {{nullptr, nullptr}, {nullptr, nullptr}} };
+			m_board[x][y] = new CTile(emptyAnimals);
+		}
+	}
+}
+
 void QtWidgetsSimulation::paintEvent(QPaintEvent* event)
 {
 	Q_UNUSED(event);
@@ -81,7 +107,7 @@ void QtWidgetsSimulation::paintEvent(QPaintEvent* event)
 				paintAnimalRect(painter,
 					i * m_SizeCase + m_SizeCase / 4,
 					j * m_SizeCase + m_SizeCase / 4,
-					SizeAnimal * 2, SizeAnimal * 2,
+					SizeAnimal, SizeAnimal,
 					animal->get_is_carnivorous());
 			}
 
@@ -92,7 +118,7 @@ void QtWidgetsSimulation::paintEvent(QPaintEvent* event)
 				paintAnimalRect(painter,
 					i * m_SizeCase + m_SizeCase / 2,
 					j * m_SizeCase + m_SizeCase / 4,
-					SizeAnimal * 2, SizeAnimal * 2,
+					SizeAnimal, SizeAnimal,
 					animal->get_is_carnivorous());
 			}
 
@@ -103,7 +129,7 @@ void QtWidgetsSimulation::paintEvent(QPaintEvent* event)
 				paintAnimalRect(painter,
 					i * m_SizeCase + m_SizeCase / 4,
 					j * m_SizeCase + m_SizeCase / 2,
-					SizeAnimal * 2, SizeAnimal * 2,
+					SizeAnimal, SizeAnimal,
 					animal->get_is_carnivorous());
 			}
 
@@ -114,7 +140,7 @@ void QtWidgetsSimulation::paintEvent(QPaintEvent* event)
 				paintAnimalRect(painter,
 					i * m_SizeCase + m_SizeCase / 2,
 					j * m_SizeCase + m_SizeCase / 2,
-					SizeAnimal * 2, SizeAnimal * 2,
+					SizeAnimal, SizeAnimal,
 					animal->get_is_carnivorous());
 			}
 		}
@@ -156,4 +182,5 @@ void QtWidgetsSimulation::setGridSize(int newSize)
 {
 	m_SizeCase = newSize;
 	update();
+	reinitializeBoard();
 }

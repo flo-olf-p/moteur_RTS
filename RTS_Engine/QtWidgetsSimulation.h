@@ -20,6 +20,7 @@ public:
 	void set_tile(CTile& tile, size_t x, size_t y) { m_board[x][y] = &tile; }
 
 	void addAnimalToBoard(CAnimal* animal, int boardX, int boardY, int tileX, int tileY);
+	void reinitializeBoard();
 
 private:
 	Ui::QtWidgetsSimulationClass ui;
