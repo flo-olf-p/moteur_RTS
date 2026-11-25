@@ -4,6 +4,9 @@
 #include "ui_QtWidgetsSimulation.h"
 #include "CTile.h"
 #include <vector>
+#include <QPainter>
+#include "CWolf.h"
+#include "CRabbit.h"
 
 class QtWidgetsSimulation : public QWidget
 {
@@ -16,16 +19,23 @@ public:
 	CTile* get_tile(size_t x, size_t y) const { return m_board[x][y]; }
 	void set_tile(CTile& tile, size_t x, size_t y) { m_board[x][y] = &tile; }
 
+	void addAnimalToBoard(CAnimal* animal, int boardX, int boardY, int tileX, int tileY);
+
 private:
 	Ui::QtWidgetsSimulationClass ui;
 	unsigned int m_SizeCase = 50;
 	std::vector<std::vector<CTile*>> m_board;
 
+	void initializeBoard();
+
 protected:
 	void paintEvent(QPaintEvent* event) override;
-	void paintAnimals(QPainter& painter, int x, int y, int size, bool is_predator);
+
+	void paintAnimalRect(QPainter& painter, int x, int y, int width, int height, bool is_carnivorous);
+
 
 public slots:
     void setGridSize(int newSize);
+	void addAnimalButton(int PredNumber, int HerbNumber);
 };
 

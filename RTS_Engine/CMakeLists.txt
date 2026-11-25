@@ -32,6 +32,7 @@ set(PROJECT_SOURCES
     QtWidgetsSimulation.cpp
     QtWidgetsSimulation.h
     QtWidgetsSimulation.ui
+
 )
 
 qt_add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})

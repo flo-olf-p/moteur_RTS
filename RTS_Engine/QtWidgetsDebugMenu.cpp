@@ -10,6 +10,15 @@ QtWidgetsDebugMenu::QtWidgetsDebugMenu(QWidget *parent)
 
 			emit gridSizeChanged(newSize);
 		});
+
+	connect(ui.AddAnimal, &QPushButton::clicked, this, [this]()
+		{
+			int PredNumber = ui.PredNumber->value();
+			int HerbNumber = ui.HerbNumber->value();
+
+
+			emit addAnimalButton(PredNumber, HerbNumber);
+		});
 }
 
 QtWidgetsDebugMenu::~QtWidgetsDebugMenu()

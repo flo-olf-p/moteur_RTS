@@ -16,5 +16,6 @@ private:
 
 signals:
 	void gridSizeChanged(int newSize);
+	void addAnimalButton(int PredNumber, int HerbNumber);
 };
 

@@ -12,6 +12,7 @@ RTS_Engine::RTS_Engine(QWidget *parent)
     ui.setupUi(this);
 
 	connect(ui.widget_2, &QtWidgetsDebugMenu::gridSizeChanged, ui.widget, &QtWidgetsSimulation::setGridSize);
+    connect(ui.widget_2, &QtWidgetsDebugMenu::addAnimalButton, ui.widget, &QtWidgetsSimulation::addAnimalButton);
 }
 
 RTS_Engine::~RTS_Engine()
