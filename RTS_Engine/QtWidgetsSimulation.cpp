@@ -1,5 +1,6 @@
 #include "QtWidgetsSimulation.h"
 #include <iostream>
+#include "QtWidgetsDebugMenu.h"
 
 QtWidgetsSimulation::QtWidgetsSimulation(QWidget* parent)
 	: QWidget(parent)
@@ -84,6 +85,16 @@ void QtWidgetsSimulation::updateTile(CTile* tile, std::array<CTile*, 4> neighbor
 		{
 			CAnimal* animal = tile->get_animal(i, j);
 			if (animal == nullptr || moved.count(animal)) continue;
+			if (!animal->isAlive())
+			{
+				if (animal->get_is_carnivorous()) { m_predNb -= 1; }
+				else { m_herbNb -= 1; }
+				tile->delete_animal(i, j);
+				continue;
+			}
+			animal->set_age(animal->get_age() + 1);
+
+
 
 			std::vector<CTile*> candidates;
 			for (CTile* ele : neighbors)
@@ -103,9 +114,24 @@ void QtWidgetsSimulation::updateTile(CTile* tile, std::array<CTile*, 4> neighbor
 	
 }
 
+void QtWidgetsSimulation::timeForReproduction()
+{
+	for (size_t i = 0; i < m_board.size(); i++)
+	{
+		for (CTile* tile : m_board[i])
+		{
+			if (!tile->can_herb_reproduce()) continue;
+
+			auto freePlaces = tile->checkPlaces();
+			auto randomFreePlace = freePlaces[std::rand() % freePlaces.size()];
+			tile->set_animal(new CRabbit(2, 0.5f, 0.1f, 30, 5, 10, false), randomFreePlace.first, randomFreePlace.second);
+			m_herbNb += 1;
+		}
+	}
+}
+
 void QtWidgetsSimulation::updateSimulation()
 {
-	qDebug() << "début de l'update";
 	size_t sizeAxeX = m_board.size();
 	std::unordered_set<CAnimal*> moved;
 	for (size_t i = 0; i < sizeAxeX; i++)
@@ -212,18 +238,22 @@ void QtWidgetsSimulation::paintAnimalRect(QPainter& painter, int x, int y, int w
 	painter.drawRect(x, y, width, height);
 }
 
+
+
 void QtWidgetsSimulation::addAnimalButton(int PredNumber, int HerbNumber)
 {
 	if (m_board.empty() || m_board[0].empty()) return;
 	for (int i = 0; i < HerbNumber; ++i)
 	{
-		CRabbit* rabbit = new CRabbit(2, 0.5f, 0.1f, 30, 5, 10, false);
+		CRabbit* rabbit = new CRabbit(2, 0.5f, 0.1f, 40, 5, 10, false);
 		addAnimalToBoard(rabbit, rand() % m_board.size(), rand() % m_board[0].size(), rand() % 2, rand() % 2);
+		m_herbNb += 1;
 	}
 	for (int i = 0; i < PredNumber; ++i)
 	{
 		CWolf* wolf = new CWolf(3, 0.3f, 0.15f, 40, 7, 8, true);
 		addAnimalToBoard(wolf, rand() % m_board.size(), rand() % m_board[0].size(), rand() % 2, rand() % 2);
+		m_predNb += 1;
 	}
 
 	update();
@@ -233,6 +263,8 @@ void QtWidgetsSimulation::endTurn()
 {
 	std::cout << "boutton appuyé endturn";
 	updateSimulation();
+	timeForReproduction();
+	emit updateStats(m_predNb, m_herbNb);
 	update();
 }
 

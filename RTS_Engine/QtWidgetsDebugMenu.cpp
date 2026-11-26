@@ -30,3 +30,9 @@ QtWidgetsDebugMenu::QtWidgetsDebugMenu(QWidget *parent)
 QtWidgetsDebugMenu::~QtWidgetsDebugMenu()
 {}
 
+
+void QtWidgetsDebugMenu::updateStats(int PredNumber, int HerbNumber)
+{
+	ui.HerbNb->setText(QString::number(HerbNumber));
+	ui.PredNb->setText(QString::number(PredNumber));
+}

@@ -26,10 +26,13 @@ private:
 	Ui::QtWidgetsSimulationClass ui;
 	unsigned int m_SizeCase = 50;
 	std::vector<std::vector<CTile*>> m_board;
+	unsigned int m_predNb = 0;
+	unsigned int m_herbNb = 0;
 
 	void initializeBoard();
 	void reinitializeBoard();
 	void updateTile(CTile* tile, std::array<CTile*, 4> neighbors, std::unordered_set<CAnimal*>& moved);
+	void timeForReproduction();
 
 protected:
 	void paintEvent(QPaintEvent* event) override;
@@ -37,9 +40,13 @@ protected:
 	void paintAnimalRect(QPainter& painter, int x, int y, int width, int height, bool is_carnivorous);
 
 
+
 public slots:
     void setGridSize(int newSize);
 	void addAnimalButton(int PredNumber, int HerbNumber);
 	void endTurn();
+
+signals:
+	void updateStats(int PredNumber, int HerbNumber);
 };
 

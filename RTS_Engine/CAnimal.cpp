@@ -15,10 +15,20 @@ CAnimal::CAnimal(unsigned int speed, float reproduction_rate, float mortality_ra
 	m_reproduction_delay = reproduction_delay;
 	m_hunger_delay = hunger_delay;
 	m_is_Carnivorous = is_Carnivorous;
+	m_reproduction_time = 0;
 }
 
 CAnimal::~CAnimal()
 {
+}
+
+bool CAnimal::isAlive() const
+{
+	if (m_age >= m_life_expectancy || m_hunger == 0)
+	{
+		return false;
+	}
+	return true;
 }
 
 /*bool CAnimal::isAlive(std::vector<std::vector<CTile>> grid, unsigned int x, unsigned int y) const

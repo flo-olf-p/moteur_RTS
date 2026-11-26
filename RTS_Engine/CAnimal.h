@@ -12,6 +12,7 @@ protected:
     unsigned int m_life_expectancy;
     //float m_gender;
     unsigned int m_reproduction_delay;
+    unsigned int m_reproduction_time;
     unsigned int m_hunger = 10;
     unsigned int m_hunger_delay;
     bool m_is_Carnivorous;
@@ -34,6 +35,7 @@ public:
     unsigned int get_hunger()const {return m_hunger;}
     unsigned int get_hunger_delay()const {return m_hunger_delay;}
     bool get_is_carnivorous() const { return m_is_Carnivorous; }
+    unsigned int get_reproduction_time() const { return m_reproduction_time;  }
     //std::pair<int,int> get_location(){return m_location;}
     
     /*SETTERS------------------------------------------------------*/
@@ -46,9 +48,13 @@ public:
     void set_reproduction_delay(unsigned int reproduction_delay){m_reproduction_delay = reproduction_delay;}
     void set_hunger(unsigned int hunger){m_hunger = hunger;}
     void set_hunger_delay(unsigned hunger_delay){m_hunger_delay = hunger_delay;}
+    void set_reproduction_time(unsigned int reproduction_time) { m_reproduction_time = reproduction_time; }
+    void add_reproduction_time(unsigned int reproduction_time) { m_reproduction_time += reproduction_time; }
     //void set_location(std::pair<int,int> location){m_location = location;}
     
     /*FUNCTIONS------------------------------------------------------*/
+
+    bool isAlive() const;
     //bool isAlive(std::vector<std::vector<CTile>> grid, unsigned int x, unsigned int y) const;
 	//void story() const;
     //virtual void move(std::vector<std::vector<CTile>> grid, unsigned int x, unsigned int y, unsigned int zx, unsigned int zy) =0; 

@@ -14,6 +14,10 @@ public:
 private:
 	Ui::QtWidgetsDebugMenuClass ui;
 
+
+public slots:
+	void updateStats(int PredNumber, int HerbNumber);
+
 signals:
 	void gridSizeChanged(int newSize);
 	void addAnimalButton(int PredNumber, int HerbNumber);

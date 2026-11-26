@@ -19,6 +19,12 @@ CTile::~CTile()
 	}
 }
 
+void CTile::delete_animal(size_t x, size_t y)
+{
+	delete m_animals[x][y];
+	m_animals[x][y] = nullptr;
+}
+
 bool CTile::is_tile_full() const
 {
 	const unsigned int size = std::size(m_animals);
@@ -54,6 +60,28 @@ bool CTile::is_tile_empty() const
 	}
 
 	return true;
+}
+
+bool CTile::can_herb_reproduce() const
+{
+	unsigned int herb = 0;
+	for (auto eles : m_animals)
+	{
+		for (auto ele : eles)
+		{
+			if (ele == nullptr) continue;
+			if (ele->get_age() < 20) continue;
+			if (ele->get_reproduction_time() != 0) 
+			{
+				ele->add_reproduction_time(-1);
+				continue;
+			}
+			if (ele->get_is_carnivorous()) return false;
+			++herb;
+			ele->set_reproduction_time(ele->get_reproduction_delay());
+		}
+	}
+	return herb >= 2 && !is_tile_full();
 }
 
 
