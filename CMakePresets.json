@@ -12,6 +12,13 @@
           "checksum": "wVa86FgEkvdCTVp1/nxvrkaemJc="
         }
       }
+    },
+    {
+      "name": "vs2026",
+      "inherits": "Qt",
+      "generator": "Visual Studio 18 2026",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build/${presetName}"
     }
   ],
   "vendor": {

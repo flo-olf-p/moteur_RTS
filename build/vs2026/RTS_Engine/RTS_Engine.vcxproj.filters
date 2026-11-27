@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\mocs_compilation_Debug.cpp">
+      <Filter>Source Files\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\CAnimal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\CRabbit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\CWolf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\RTS_Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\QtWidgetsDebugMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\QtWidgetsSimulation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\mocs_compilation_Release.cpp">
+      <Filter>Source Files\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\mocs_compilation_MinSizeRel.cpp">
+      <Filter>Source Files\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\mocs_compilation_RelWithDebInfo.cpp">
+      <Filter>Source Files\Generated</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\CAnimal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\CRabbit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\CWolf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\RTS_Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\QtWidgetsDebugMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\QtWidgetsSimulation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\include_Debug\ui_RTS_Engine.h">
+      <Filter>Source Files\Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\include_Debug\ui_QtWidgetsDebugMenu.h">
+      <Filter>Source Files\Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\include_Debug\ui_QtWidgetsSimulation.h">
+      <Filter>Source Files\Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\include_Release\ui_RTS_Engine.h">
+      <Filter>Source Files\Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\include_Release\ui_QtWidgetsDebugMenu.h">
+      <Filter>Source Files\Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\include_Release\ui_QtWidgetsSimulation.h">
+      <Filter>Source Files\Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\include_MinSizeRel\ui_RTS_Engine.h">
+      <Filter>Source Files\Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\include_MinSizeRel\ui_QtWidgetsDebugMenu.h">
+      <Filter>Source Files\Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\include_MinSizeRel\ui_QtWidgetsSimulation.h">
+      <Filter>Source Files\Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\include_RelWithDebInfo\ui_RTS_Engine.h">
+      <Filter>Source Files\Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\include_RelWithDebInfo\ui_QtWidgetsDebugMenu.h">
+      <Filter>Source Files\Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\include_RelWithDebInfo\ui_QtWidgetsSimulation.h">
+      <Filter>Source Files\Generated</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\CMakeFiles\148633968ad8b07f5d8f545cc348c4c7\autouic_(CONFIG).stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\RTS_Engine.ui" />
+    <None Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\QtWidgetsDebugMenu.ui" />
+    <None Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\RTS_Engine\QtWidgetsSimulation.ui" />
+    <None Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\autouic_Debug.stamp">
+      <Filter>Source Files\Generated</Filter>
+    </None>
+    <None Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\autouic_Release.stamp">
+      <Filter>Source Files\Generated</Filter>
+    </None>
+    <None Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\autouic_MinSizeRel.stamp">
+      <Filter>Source Files\Generated</Filter>
+    </None>
+    <None Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine\RTS_Engine_autogen\autouic_RelWithDebInfo.stamp">
+      <Filter>Source Files\Generated</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{31E956AB-F57B-3687-8F15-DC1C29F12457}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{DC74D233-40DF-32E9-BA9D-D47FC9DE6D95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{BA262083-5FD4-3F59-A850-A77D8F9508C8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Generated">
+      <UniqueIdentifier>{0FDA9A1D-EE82-3925-B72C-136ECAE09988}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

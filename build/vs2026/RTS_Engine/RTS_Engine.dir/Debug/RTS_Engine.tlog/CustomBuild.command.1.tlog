@@ -1,0 +1,22 @@
+^E:\COURS\3EMEANNEE\MATHÉMATIQUES\MOTEUR_RTS\BUILD\VS2026\CMAKEFILES\148633968AD8B07F5D8F545CC348C4C7\AUTOUIC_(CONFIG).STAMP.RULE
+setlocal
+cd E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\RTS_Engine
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\COURS\3EMEANNEE\MATHÉMATIQUES\MOTEUR_RTS\RTS_ENGINE\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/Cours/3emeAnnee/Mathématiques/moteur_RTS -BE:/Cours/3emeAnnee/Mathématiques/moteur_RTS/build/vs2026 --check-stamp-file E:/Cours/3emeAnnee/Mathématiques/moteur_RTS/build/vs2026/RTS_Engine/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

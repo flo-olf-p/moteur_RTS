@@ -1,13 +1,5 @@
-cmake_minimum_required(VERSION 3.16)
-project(RTS_Engine VERSION 0.1 LANGUAGES CXX)
-
-include(qt.cmake)
-
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
-
+qt_standard_project_setup()
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\Cours\3emeAnnee\Mathématiques\moteur_RTS\build\vs2026\CMakeFiles\edd06090860d05313a3f7dfaac2eb5b2\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{31E956AB-F57B-3687-8F15-DC1C29F12457}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

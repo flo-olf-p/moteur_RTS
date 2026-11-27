@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"E:/Cours/3emeAnnee/Math\u00e9matiques/moteur_RTS/build/vs2026/cmake_install.cmake",
+		"E:/Cours/3emeAnnee/Math\u00e9matiques/moteur_RTS/build/vs2026/RTS_Engine/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
